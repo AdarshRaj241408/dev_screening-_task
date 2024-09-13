@@ -42,8 +42,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
       body: Stack(
         children: [
           Positioned.fill(
-            child: Image.network(
-              'https://i.pinimg.com/564x/90/9a/d2/909ad238365dbdd7ee088110a24edb39.jpg',
+            child: Image.asset(
+              'assets/images/def_bg.jpg',
               fit: BoxFit.cover,
             ),
           ),
@@ -62,8 +62,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                     ),
                   ),
                   child: ClipOval(
-                    child: Image.network(
-                      'https://i.pinimg.com/564x/b0/d1/ce/b0d1ce8b8ef551376453eae47dcdaf34.jpg',
+                    child: Image.asset(
+                      'assets/images/notif_icon.jpg',
                       fit: BoxFit.cover,
                     ),
                   ),

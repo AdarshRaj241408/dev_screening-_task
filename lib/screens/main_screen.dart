@@ -10,8 +10,9 @@ class MainPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: const NetworkImage(
-                'https://i.pinimg.com/564x/75/07/03/7507034c72ebbf917ecadcad1e61df9b.jpg'),
+            image: AssetImage(
+              'assets/images/main_bg.jpg',
+            ),
             fit: BoxFit.cover, // Fills the background
             colorFilter: ColorFilter.mode(
               Colors.black.withOpacity(0.7),
@@ -46,8 +47,8 @@ class MainPage extends StatelessWidget {
                   ],
                 ),
                 child: ClipOval(
-                  child: Image.network(
-                    'https://i.pinimg.com/564x/38/1b/3e/381b3e1e8a1e24f693a9619614fcbc66.jpg',
+                  child: Image.asset(
+                    'assets/images/main_icon.jpg',
                     fit: BoxFit.cover,
                   ),
                 ),

@@ -48,8 +48,8 @@ class _CryptoScreenState extends State<CryptoScreen> {
       body: Stack(
         children: [
           Positioned.fill(
-            child: Image.network(
-              'https://i.pinimg.com/564x/90/9a/d2/909ad238365dbdd7ee088110a24edb39.jpg',
+            child: Image.asset(
+              'assets/images/def_bg.jpg',
               fit: BoxFit.cover,
             ),
           ),
@@ -105,8 +105,8 @@ class _CryptoScreenState extends State<CryptoScreen> {
                             ),
                           ),
                           child: ClipOval(
-                            child: Image.network(
-                              'https://i.pinimg.com/564x/f8/40/0c/f8400c36c335cf6812c1b2e76d69ef0c.jpg',
+                            child: Image.asset(
+                              'assets/images/delta.jpg',
                               fit: BoxFit.cover,
                             ),
                           ),

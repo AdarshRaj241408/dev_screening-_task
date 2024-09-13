@@ -59,8 +59,8 @@ class _ImageSwitcherScreenState extends State<ImageSwitcherScreen> {
       body: Stack(
         children: [
           Positioned.fill(
-            child: Image.network(
-              'https://i.pinimg.com/564x/90/9a/d2/909ad238365dbdd7ee088110a24edb39.jpg',
+            child: Image.asset(
+              'assets/images/def_bg.jpg',
             ),
           ),
           Center(
