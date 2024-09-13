@@ -48,8 +48,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
           Center(
             child: ElevatedButton(
               onPressed: () {
-                NotificationService()
-                    .showNotification(title: 'Sample title', body: 'It works!');
+                NotificationService().showNotification(
+                    title: 'Congratulations!',
+                    body: 'Bitcoin prices are high!');
               },
               child: Text('Notification'),
             ),
