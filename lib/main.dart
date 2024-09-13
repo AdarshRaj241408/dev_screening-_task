@@ -6,10 +6,13 @@ import 'package:trial_app/services/nav_service.dart';
 import 'package:trial_app/services/notif_service.dart';
 import 'package:trial_app/screens/image_switcher_screen.dart';
 import 'package:trial_app/screens/main_screen.dart';
+import 'package:timezone/data/latest.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   NotificationService().initNotification();
+  tz.initializeTimeZones();
   runApp(const MyApp());
 }
 

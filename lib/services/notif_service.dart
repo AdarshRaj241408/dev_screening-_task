@@ -1,5 +1,7 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:logger/logger.dart';
+import 'package:timezone/data/latest.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
 
 class NotificationService {
   final FlutterLocalNotificationsPlugin notificationsPlugin =
@@ -82,6 +84,37 @@ class NotificationService {
       body,
       notificationDetails(),
       payload: payload,
+    );
+  }
+
+  Future<void> scheduleDailyNotification() async {
+    // Define the time you want the notification to be triggered daily
+    final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
+    final tz.TZDateTime scheduledDate = tz.TZDateTime(
+      tz.local,
+      now.year,
+      now.month,
+      now.day,
+      9, // Hour
+      0, // Minute
+      0, // Second
+    );
+
+    // If the scheduled date is before the current date, move to the next day
+    final tz.TZDateTime nextInstance = scheduledDate.isBefore(now)
+        ? scheduledDate.add(const Duration(days: 1))
+        : scheduledDate;
+
+    await notificationsPlugin.zonedSchedule(
+      0,
+      'Daily Reminder',
+      'This is your daily reminder!',
+      nextInstance,
+      notificationDetails(),
+      uiLocalNotificationDateInterpretation:
+          UILocalNotificationDateInterpretation.absoluteTime,
+      androidAllowWhileIdle: true,
+      matchDateTimeComponents: DateTimeComponents.time,
     );
   }
 }
