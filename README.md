@@ -17,7 +17,7 @@ This project serves as a starting point for building and enhancing a Flutter app
 - The Image Switcher allows users to change the displayed image with a simple tap of a button.
 - This feature showcases the ability to dynamically update UI elements based on user interactions.
 
-### List 'em All!
+### List 'em All
 
 - This feature pulls data from an API to display a list of 100 users in a scrollable format.
 - The user-friendly interface allows users to browse the list effortlessly, demonstrating efficient data fetching and rendering in Flutter.

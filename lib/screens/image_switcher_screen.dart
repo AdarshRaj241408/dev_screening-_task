@@ -1,8 +1,12 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:trial_app/widgets/navigation_bar.dart';
 import 'package:trial_app/services/nav_service.dart';
 
 class ImageSwitcherScreen extends StatefulWidget {
+  const ImageSwitcherScreen({super.key});
+
   @override
   _ImageSwitcherScreenState createState() => _ImageSwitcherScreenState();
 }
@@ -50,7 +54,7 @@ class _ImageSwitcherScreenState extends State<ImageSwitcherScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Image Switcher'),
+        title: const Text('Image Switcher'),
       ),
       body: Stack(
         children: [
@@ -70,7 +74,7 @@ class _ImageSwitcherScreenState extends State<ImageSwitcherScreen> {
                     color: Colors.grey[800],
                     borderRadius: BorderRadius.circular(10.0),
                     border: Border.all(
-                      color: Colors.blue.withOpacity(0.5),
+                      color: Colors.blueAccent.withOpacity(0.5),
                       width: 2,
                     ),
                     boxShadow: [
@@ -78,7 +82,7 @@ class _ImageSwitcherScreenState extends State<ImageSwitcherScreen> {
                         color: Colors.black.withOpacity(0.5),
                         spreadRadius: 2,
                         blurRadius: 10,
-                        offset: const Offset(0, 4), // Elevation effect
+                        offset: const Offset(0, 4),
                       ),
                     ],
                   ),
@@ -90,20 +94,20 @@ class _ImageSwitcherScreenState extends State<ImageSwitcherScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: _switchImage,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(204, 35, 165, 216),
-                    foregroundColor: Colors.grey,
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+                    backgroundColor: Colors.blueAccent,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24.0, vertical: 12.0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0),
                     ),
-                    minimumSize: Size(200, 50),
+                    minimumSize: const Size(200, 50),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Switch Image',
                     style: TextStyle(fontSize: 16),
                   ),

@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:trial_app/services/nav_service.dart';
 import '../services/crypto_service.dart';
@@ -40,13 +42,14 @@ class _CryptoScreenState extends State<CryptoScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Crypto Prices'),
+        centerTitle: true,
+        title: const Text('Crypto Prices'),
       ),
       body: Stack(
         children: [
           Positioned.fill(
             child: Image.network(
-              'https://i.pinimg.com/564x/90/9a/d2/909ad238365dbdd7ee088110a24edb39.jpg', // Replace with your background image URL
+              'https://i.pinimg.com/564x/90/9a/d2/909ad238365dbdd7ee088110a24edb39.jpg',
               fit: BoxFit.cover,
             ),
           ),
@@ -55,7 +58,7 @@ class _CryptoScreenState extends State<CryptoScreen> {
               future: cryptoService.fetchCryptoPrices(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
                   return Center(child: Text('Error: ${snapshot.error}'));
                 } else if (snapshot.hasData) {
@@ -67,15 +70,15 @@ class _CryptoScreenState extends State<CryptoScreen> {
                       title: Text(
                         cryptoName.toUpperCase(),
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19),
                       ),
                       subtitle: Text(
                         '\$${cryptoPrice.toStringAsFixed(2)}',
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
                     );
                   }).toList();
@@ -85,9 +88,32 @@ class _CryptoScreenState extends State<CryptoScreen> {
                       minHeight: screenHeight,
                     ),
                     child: Column(
-                      mainAxisAlignment:
-                          MainAxisAlignment.center, // Center vertically
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        const SizedBox(
+                          height: 120,
+                        ),
+                        Container(
+                          width: 250.0,
+                          height: 250.0,
+                          margin: const EdgeInsets.only(bottom: 20),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: Colors.blueAccent,
+                              width: 4.0,
+                            ),
+                          ),
+                          child: ClipOval(
+                            child: Image.network(
+                              'https://i.pinimg.com/564x/f8/40/0c/f8400c36c335cf6812c1b2e76d69ef0c.jpg',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
                         Expanded(
                           child: ListView(
                             shrinkWrap: true,
@@ -99,7 +125,7 @@ class _CryptoScreenState extends State<CryptoScreen> {
                     ),
                   );
                 } else {
-                  return Center(child: Text('No data available'));
+                  return const Center(child: Text('No data available'));
                 }
               },
             ),

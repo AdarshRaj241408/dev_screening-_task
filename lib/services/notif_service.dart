@@ -1,6 +1,7 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:logger/logger.dart';
-import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
 class NotificationService {
@@ -14,7 +15,7 @@ class NotificationService {
       'flutter_logo',
     ); // Ensure this icon exists in your drawable directory
 
-    final Logger _logger = Logger();
+    final Logger logger = Logger();
 
     // Initialize iOS settings
     final DarwinInitializationSettings initializationSettingsIOS =
@@ -43,7 +44,7 @@ class NotificationService {
       onDidReceiveNotificationResponse:
           (NotificationResponse notificationResponse) async {
         // Handle the notification response
-        _logger.i(
+        logger.i(
             'Notification tapped with payload: ${notificationResponse.payload}');
         // Navigate to the desired screen or perform other actions
       },

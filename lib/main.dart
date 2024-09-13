@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:trial_app/screens/crypto_screen.dart';
 import 'package:trial_app/screens/list_screen.dart';
@@ -7,7 +9,6 @@ import 'package:trial_app/services/notif_service.dart';
 import 'package:trial_app/screens/image_switcher_screen.dart';
 import 'package:trial_app/screens/main_screen.dart';
 import 'package:timezone/data/latest.dart' as tz;
-import 'package:timezone/timezone.dart' as tz;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,12 +37,13 @@ class _MyAppState extends State<MyApp> {
           bodyMedium: TextStyle(color: Colors.white),
         ),
       ),
+      debugShowCheckedModeBanner: false,
       home: MainPage(),
       navigatorKey: NavService.navigatorKey,
       routes: {
         '/list': (context) => ListScreen(),
         '/imageSwitcher': (context) => ImageSwitcherScreen(),
-        '/crypto': (context) => CryptoScreen(),
+        '/crypto': (context) => const CryptoScreen(),
         '/notifications': (context) => NotificationScreen(),
       },
     );

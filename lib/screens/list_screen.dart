@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'dart:convert'; 
 import 'package:http/http.dart' as http; 
@@ -5,6 +7,8 @@ import 'package:trial_app/widgets/navigation_bar.dart';
 import 'package:trial_app/services/nav_service.dart';
 
 class ListScreen extends StatefulWidget {
+  const ListScreen({super.key});
+
   @override
   _ListScreenState createState() => _ListScreenState();
 }
@@ -29,7 +33,7 @@ class _ListScreenState extends State<ListScreen> {
       setState(() {
         _users = (data['results'] as List)
             .map((user) =>
-                '${user['name']['first']} ${user['name']['last']}' as String)
+                '${user['name']['first']} ${user['name']['last']}')
             .toList();
         _isLoading = false;
       });
@@ -63,7 +67,7 @@ class _ListScreenState extends State<ListScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('List \'em all!'),
+        title: const Text('List \'em all!'),
       ),
       body: Stack(
         children: [
@@ -76,16 +80,16 @@ class _ListScreenState extends State<ListScreen> {
           ),
           Center(
             child: _isLoading
-                ? Center(child: CircularProgressIndicator())
+                ? const Center(child: CircularProgressIndicator())
                 : Container(
                     width: double.infinity,
-                    margin: EdgeInsets.all(16.0),
+                    margin: const EdgeInsets.all(16.0),
                     child: ListView.builder(
                       itemCount: _users.length,
                       itemBuilder: (context, index) {
                         return Container(
-                          margin: EdgeInsets.symmetric(vertical: 4.0),
-                          padding: EdgeInsets.all(8.0),
+                          margin: const EdgeInsets.symmetric(vertical: 4.0),
+                          padding: const EdgeInsets.all(8.0),
                           decoration: BoxDecoration(
                             color: Colors.black54.withOpacity(
                                 0), 
@@ -95,14 +99,14 @@ class _ListScreenState extends State<ListScreen> {
                                 color: Colors.black.withOpacity(0),
                                 spreadRadius: 1,
                                 blurRadius: 5,
-                                offset: Offset(0, 3),
+                                offset: const Offset(0, 3),
                               ),
                             ],
                           ),
                           child: Center(
                             child: Text(
                               _users[index],
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.0,
                               ),
