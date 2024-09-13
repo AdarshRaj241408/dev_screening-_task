@@ -9,8 +9,7 @@ class ImageSwitcherScreen extends StatefulWidget {
 
 class _ImageSwitcherScreenState extends State<ImageSwitcherScreen> {
   String imageUrl1 = 'https://i.imgur.com/Gi9cwgR.gif';
-  String imageUrl2 =
-      'https://i.imgur.com/6dEnvXV_d.webp?maxwidth=760&fidelity=grand';
+  String imageUrl2 = 'https://media1.tenor.com/m/rTohwIgEl5QAAAAd/racoon.gif';
   late String currentImageUrl;
   int _currentIndex = 1;
 
@@ -68,11 +67,10 @@ class _ImageSwitcherScreenState extends State<ImageSwitcherScreen> {
                   width: 350,
                   height: 350,
                   decoration: BoxDecoration(
-                    color: Colors.grey[800], 
+                    color: Colors.grey[800],
                     borderRadius: BorderRadius.circular(10.0),
                     border: Border.all(
-                      color: Colors.blue
-                          .withOpacity(0.5),
+                      color: Colors.blue.withOpacity(0.5),
                       width: 2,
                     ),
                     boxShadow: [
