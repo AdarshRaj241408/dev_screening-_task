@@ -10,7 +10,7 @@ class MainPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(
+            image: const AssetImage(
               'assets/images/main_bg.jpg',
             ),
             fit: BoxFit.cover, // Fills the background
